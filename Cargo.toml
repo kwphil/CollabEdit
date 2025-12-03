@@ -1,0 +1,25 @@
+[package]
+name = "CollabEdit"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[workspace]
+members = [
+    "rust/crypto-engine",
+    "rust/conflict-resolver", 
+    "rust/compression",
+    "rust/ffi-bindings",
+]
+resolver = "2"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+
+[profile.dev]
+opt-level = 1
+debug = true
